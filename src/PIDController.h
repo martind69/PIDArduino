@@ -26,6 +26,7 @@ class PIDController {
     void limit(double min, double max);
     void setpoint(double newSetpoint);
     void minimize(double newMinimize);
+	void adaptiveRetune(double newFactor);
 
     // Methods - double, getters
     double getOutput();
@@ -48,6 +49,7 @@ class PIDController {
 
     // Variables - bool
     bool doLimit;
+	bool doAdaption;
     bool init;
 
     // Variables - double - tuining
@@ -55,6 +57,8 @@ class PIDController {
     double Ki;
     double Kd;
     double divisor;
+    double aKi;
+    double aKiDivisor;
     double minOut;
     double maxOut;
     double setPoint;
